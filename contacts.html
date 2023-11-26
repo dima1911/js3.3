@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти - Інтернет-кафе "Avenue"</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <h1>Інтернет-кафе</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="about.html">Про нас</a>
+      <a href="menu.html">Меню</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+  </header>
+  <main>
+    <section id="contact-content">
+      <h2>Зв'яжіться з нами</h2>
+      <p>Ми завжди раді вам допомогти. Звертайтеся за контактними даними нижче:</p>
+
+      <address>
+        <p><strong>Адреса:</strong> вул. Київська, 19, місто Київ</p>
+        <p><strong>Телефон:</strong> +38 (073 123-23-26)</p>
+        <p><strong>Email:</strong> info@avenue-cafe.com</p>
+      </address>
+
+      <h3>Форма зворотного зв'язку</h3>
+      <form action="process_form.php" method="post">
+        <label for="name">Ваше ім'я:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Ваш Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Ваше повідомлення:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Відправити</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright &copy; 2023</p>
+  </footer>
+</body>
+</html>
