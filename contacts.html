@@ -28,7 +28,7 @@
       </address>
 
       <h3>Форма зворотного зв'язку</h3>
-      <form action="process_form.php" method="post">
+      <form id="contactForm" onsubmit="return validateForm()">
         <label for="name">Ваше ім'я:</label>
         <input type="text" id="name" name="name" required>
 
@@ -40,10 +40,38 @@
 
         <button type="submit">Відправити</button>
       </form>
+
+      <div id="successMessage" class="success-message" style="display: none;">
+        Ваше повідомлення успішно відправлено!
+      </div>
+
+      <div id="errorMessage" class="error-message" style="display: none;">
+        Виникла помилка під час відправлення повідомлення. Будь ласка, спробуйте ще раз.
+      </div>
     </section>
   </main>
   <footer>
     <p>Copyright &copy; 2023</p>
   </footer>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+
+      if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+        alert('Будь ласка, заповніть всі поля форми.');
+        return false;
+      }
+      displaySuccessMessage();
+      return false; // 
+    }
+
+    function displaySuccessMessage() {
+      document.getElementById('successMessage').style.display = 'block';
+      document.getElementById('errorMessage').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

@@ -19,62 +19,89 @@
   <main>
     <section id="menu-content">
       <h2>Наше Меню</h2>
-
       <div class="menu-category">
         <h3>Кава</h3>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Еспресо', 2.50)">
           <img src="img/espr.jpeg" alt="Еспресо">
           <p>Еспресо - $2.50</p>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Латте', 3.00)">
           <img src="img/latte.jpg" alt="Латте">
           <p>Латте - $3.00</p>
         </div>
-
       </div>
 
       <div class="menu-category">
         <h3>Чай</h3>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Чорний чай', 2.00)">
           <img src="img/btea.jpg" alt="Чорний чай">
           <p>Чорний чай - $2.00</p>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Зелений чай', 2.50)">
           <img src="img/gtea.jpg" alt="Зелений чай">
           <p>Зелений чай - $2.50</p>
         </div>
-
       </div>
 
       <div class="menu-category">
         <h3>Солодощі</h3>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Тістечко', 3.50)">
           <img src="img/cake.jpg" alt="Тістечко">
           <p>Тістечко - $3.50</p>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Печиво', 2.00)">
           <img src="img/cookie.jpg" alt="Печиво">
           <p>Печиво - $2.00</p>
         </div>
-
       </div>
 
       <div class="menu-category">
         <h3>Холодні напої</h3>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Лимонад', 3.50)">
           <img src="img/limonade.jpeg" alt="Лимонад">
           <p>Лимонад - $3.50</p>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick="showDetails('Морс', 3.00)">
           <img src="img/morc.jpg" alt="Морс">
           <p>Морс - $3.00</p>
         </div>
-
       </div>
     </section>
   </main>
   <footer>
     <p>Copyright &copy; 2023</p>
   </footer>
+
+  <div class="details-container" id="detailsContainer">
+    <div class="details-content">
+      <span class="close-details" onclick="closeDetails()">&times;</span>
+      <h2 id="detailsTitle"></h2>
+      <p id="detailsPrice"></p>
+      <label for="quantity">Кількість:</label>
+      <input type="number" id="quantity" value="1" min="1">
+      <button onclick="addToCart()">Додати до кошика</button>
+    </div>
+  </div>
+
+  <script>
+    function showDetails(title, price) {
+      document.getElementById('detailsTitle').innerText = title;
+      document.getElementById('detailsPrice').innerText = 'Ціна: $' + price.toFixed(2);
+      document.getElementById('detailsContainer').style.display = 'flex';
+    }
+
+    function closeDetails() {
+      document.getElementById('detailsContainer').style.display = 'none';
+    }
+
+    function addToCart() {
+      var title = document.getElementById('detailsTitle').innerText;
+      var price = parseFloat(document.getElementById('detailsPrice').innerText.replace('Ціна: $', ''));
+      var quantity = parseInt(document.getElementById('quantity').value);
+      var total = price * quantity;
+      alert('Додано до кошика:\n' + title + ' - ' + quantity + 'шт. Загалом: $' + total.toFixed(2));
+      closeDetails();
+    }
+  </script>
 </body>
 </html>

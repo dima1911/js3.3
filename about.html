@@ -16,6 +16,24 @@
     </nav>
   </header>
   <main>
+    
+    <button onclick="showAlert()">Показати повідомлення</button>
+<button onclick="showConfirmation()">Підтвердити</button>
+
+<script>
+  function showAlert() {
+    alert('Це приклад повідомлення!');
+  }
+
+  function showConfirmation() {
+    var result = confirm('Ви впевнені, що хочете продовжити?');
+    if (result) {
+      alert('Дія підтверджена!');
+    } else {
+      alert('Дія відмінена.');
+    }
+  }
+</script>
     <section id="about-content">
       <h2>Інтернет-кафе "Avenue" – Про нас</h2>
       <p>
